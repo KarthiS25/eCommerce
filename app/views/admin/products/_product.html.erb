@@ -1,0 +1,23 @@
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title"><%= product.name%></h5>
+    <p class="card-text"><strong class="block font-medium mb-1">Description:</strong> "<%= product.description %>"</p>  
+    <p class="my-5">
+      <strong class="block font-medium mb-1">image:</strong>
+      <% product.images.each do |image| %>
+        <%= image_tag(image, width: 100)  %>
+      <% end %>
+    </p>
+    <p class="card-text"><strong class="block font-medium mb-1">Price:</strong>₹<%= product.price.to_f %></p> 
+    <a href="#" class="btn btn-primary">Buy</a> <span><a href="#" class="btn btn-outline-info">Save this</a></span>
+  </div>
+  <% if action_name != "show" %>
+    <%= button_to "Destroy this product", product_path(product), method: :delete, class: "btn btn-secondary" %>
+    <%= link_to "Show this product", product, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this product', edit_product_path(product), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+  <div class="card-footer text-muted">
+    <%= product.updated_at.ctime.to_s %>
+  </div>
+</div>
