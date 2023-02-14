@@ -48,7 +48,7 @@ gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -63,7 +63,8 @@ group :development do
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "spring"
+  gem 'pry-rails'
 end
 
 group :test do
@@ -74,5 +75,4 @@ group :test do
 end
 gem 'devise'
 gem "cssbundling-rails", "~> 1.1"
-
 gem "jsbundling-rails", "~> 1.1"

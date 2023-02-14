@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-    # before_action :authenticate_user!
+    before_action :authenticate_user!
     before_action :set_product, only: %i[ show edit update destroy ]
 
     def index
@@ -18,7 +18,18 @@ class Admin::ProductsController < ApplicationController
 
     def create
         @product = Product.new(product_params)
+        # binding.pry
 
+        # file_name = params[:product][:images].original_name.split('.').[0]
+        # if params[:product][:images].present?
+        #   image = {
+        #     io: params[:product][:images],
+        #     content_type: 'image/jpg',
+        #     filename: file_name,
+        #     key:"#{file_name +'-'+Time.zone.now.to_s}"
+        #   }
+        #   @product.images.attach(image)
+        # end
         respond_to do |format|
             if @product.save
                 format.html{ redirect_to product_url(@product), notice: "Product was successfully created"}
