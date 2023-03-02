@@ -57,6 +57,12 @@ class Admin::ProductsController < ApplicationController
         end
       end
 
+    def delete_image_attachment
+        @image = ActiveStorage::Blob.find_signed(params[:id])
+        @image.attachments.first.purge
+        redirect_back(fallback_location: edit_product_path)
+    end
+
     private
 
     def set_product

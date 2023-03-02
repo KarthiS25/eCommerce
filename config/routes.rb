@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     root to: "products#index", as: :user_root
   end
 
+  resources :products do
+    member do
+      delete :delete_image_attachment
+    end
+  end
+
   scope module: 'admin', path: 'admin' do
     resources :products
     get 'products' => 'products#index'

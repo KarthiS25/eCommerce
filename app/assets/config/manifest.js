@@ -3,6 +3,3 @@
 //= link_tree ../../../vendor/javascript .js
 //= link_tree ../builds
 //= link_tree ../stylesheets
-//= link_tree ../css
-//= link devise.css
-//= link application.css

@@ -1,8 +1,8 @@
-<%= form_with(model: product, local: true, class: "forms-sample") do |f| %>
-  <% if product.errors.any? %>
+<%= form_with(model: @product, local: true, class: "forms-sample") do |f| %>
+  <% if @product.errors.any? %>
     <div id="error_explanation">
       <ul>
-        <% product.errors.full_messages.each do |message| %>
+        <% @product.errors.full_messages.each do |message| %>
           <li style="list-style-type: none; margin-left: -1rem;">
             <span class="badge badge-sm bg-gradient-danger"><%= message %></span>
           </li>
@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-  <div class="aestric-container">
-    <div ><%= f.label :name %> </div> <div class="aestric-color">*</div>
+  <div class="form-group mb-3">
+  <div class="aestric-container mb-2">
+    <%= f.label :name %><span class="aestric-color">*</span>
   </div>
-    <%= f.text_field :name, class: "form-control", placeholder: "Name", required: true %>
-  </div>
-
-  <div class="form-group">
-  <div class="aestric-container">
-    <div><%= f.label :description %> </div> <div class="aestric-color">*</div>
-  </div>
-    <%= f.text_area :description, class: "form-control", placeholder: "Description", required: true %>
+    <%= f.text_field :name, class: "form-control form-control-lg", placeholder: "Name", required: true %>
   </div>
 
-  <div class="form-group">
-  <div class="aestric-container">
-    <div> <%= f.label :price %> </div> <div class="aestric-color">*</div>
+  <div class="form-group mb-3">
+  <div class="aestric-container mb-2">
+    <%= f.label :description %><span class="aestric-color">*</span>
+  </div>
+    <%= f.text_area :description, class: "form-control form-control-sm", placeholder: "Description", required: true %>
+  </div>
+
+  <div class="form-group mb-3">
+  <div class="aestric-container mb-2">
+    <%= f.label :price %><span class="aestric-color">*</span>
   </div>
     <%= f.number_field :price, class: "form-control", placeholder: "₹Price", required: true %>
   </div>
 
-  <div class="form-group">
-  <div class="aestric-container">
-    <div> <%= f.label :images %> </div> <div class="aestric-color">*</div>
+  <div class="form-group mb-3">
+  <div class="aestric-container mb-2">
+    <%= f.label :images, for:"formFileMultiple" %> <span class="aestric-color">*</span>
   </div>
-    <%= f.file_field :images, class: "form-control", :multiple => true, required: true %><br>
+    <%= f.file_field :images, class: "form-control", :multiple => true, id:"formFileMultiple", required: true %><br>
   </div>
 
   <% if action_name == "edit" || action_name == "update" %>
@@ -44,5 +44,4 @@
   <% else %>
     <%= f.submit "Create Product", class: "btn btn-primary mr-2" %>
   <% end %>
-  <%= link_to "Back", products_path, class: "btn btn-light" %>
 <% end %>
