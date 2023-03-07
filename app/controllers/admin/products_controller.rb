@@ -3,8 +3,8 @@ class Admin::ProductsController < ApplicationController
     before_action :set_product, only: %i[ show edit update destroy ]
 
     def index
-        @products = Product.all
-    end
+            @products = Product.all
+        end
     
     def show
     end

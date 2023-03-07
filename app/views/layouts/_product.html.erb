@@ -11,10 +11,12 @@
         <a href="#" class="btn btn-primary">Buy</a> <span><a href="#" class="btn btn-outline-info">Save this</a></span>
       </div>
       <div>
+        <% if current_user.is_admin? %>
           <% if action_name != "show" %>
             <p><%= button_to "Destroy this product", product_path(product), method: :delete, class: "btn btn-secondary" %></p>
-            <p><%= link_to 'Edit this product', edit_product_path(product), class: "btn btn-info" %></p>
+            <p><%= link_to 'Edit this product', edit_admin_path(product), class: "btn btn-info" %></p>
           <% end %>
+        <% end %>
       </div>
     </div>
     <div class="col-md-6 card-body cont">
