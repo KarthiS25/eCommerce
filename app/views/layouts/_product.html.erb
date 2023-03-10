@@ -8,7 +8,7 @@
 
       <p class="card-text"><strong class="block font-medium mb-1">Price:</strong>₹<%= product.price.to_f %></p> 
       <div>
-        <a href="#" class="btn btn-primary">Buy</a> <span><a href="#" class="btn btn-outline-info">Save this</a></span>
+        <%= button_to "Buy", checkout_create_path, params: {id: product.id}, remote: true%> <span><a href="#" class="btn btn-outline-info">Save this</a></span>
       </div>
       <div>
         <% if current_user.is_admin? %>

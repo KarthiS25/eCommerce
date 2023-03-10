@@ -6,15 +6,18 @@
   </ol>
 </nav>
 </div>
-<div class="content-wrapper">
-  <div class="col-lg-6 grid-margin stretch-card aligning">
+<div class="container-fluid pt-2">
+  <div class="col-lg-6 grid-margin stretch-card">
     <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Create New Product</h4>
-        <!--<p class="card-description">
-          Add class <code>.table-hover</code>
-        </p>-->
-
+      <div class="d-flex flex-column justify-content-center align-items-center form-contain">
+      <%= link_to products_path, style:"width: 100%;" do %>
+        <i class="fa fa-arrow-left"></i>
+      <% end %>
+        <div class="logo-container">
+          <%= image_tag "dreamday.jpg", width: "100%", height: "50px", class: "mr-2", alt: "logo" %>
+        </div>
+      </div>
+      <div class="card-body pt-2">
         <%= render 'form', product: @product %>
       </div>
     </div>
