@@ -102,10 +102,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -234,7 +230,6 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
-    stripe (8.3.0)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.1)
@@ -273,7 +268,6 @@ DEPENDENCIES
   cssbundling-rails (~> 1.1)
   debug
   devise
-  dotenv-rails
   font-awesome-rails
   image_processing (~> 1.2)
   importmap-rails
@@ -290,7 +284,6 @@ DEPENDENCIES
   spring
   sprockets-rails
   stimulus-rails
-  stripe
   turbo-rails
   tzinfo-data
   web-console

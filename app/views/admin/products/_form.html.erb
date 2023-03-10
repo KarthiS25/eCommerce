@@ -36,7 +36,7 @@
   <div class="aestric-container mb-2">
     <%= f.label :images, for:"formFileMultiple" %> <span class="aestric-color">*</span>
   </div>
-    <%= f.file_field :images, class: "form-control", :multiple => true, id:"formFileMultiple"%><br>
+    <%= f.file_field :images, class: "form-control", :multiple => true, id:"formFileMultiple", required: true %><br>
   </div>
 
   <% if action_name == "edit" || action_name == "update" %>
