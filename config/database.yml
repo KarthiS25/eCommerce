@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: eCommerce_production
-  username: eCommerce
-  password: <%= ENV["ECOMMERCE_DATABASE_PASSWORD"] %>
+  username: karthi
+  password: 1234
