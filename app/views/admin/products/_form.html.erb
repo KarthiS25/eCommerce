@@ -1,4 +1,4 @@
-<%= form_with(model: @product, local: true, class: "forms-sample") do |f| %>
+
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <ul>
@@ -44,4 +44,3 @@
   <% else %>
     <%= f.submit "Create Product", class: "btn btn-primary mr-2" %>
   <% end %>
-<% end %>

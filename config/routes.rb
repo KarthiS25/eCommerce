@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  post 'checkout/create', to: 'checkout#create'
+
+  get 'checkout', to: 'checkouts#show'
+  post 'checkout/create', to: 'checkouts#create'
+  get 'checkout/success', to: 'checkouts#success'
+  get 'billing', to: 'billing#show'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'products#index'
   # Defines the root path route ("/")
@@ -13,8 +18,9 @@ Rails.application.routes.draw do
   end
 
   scope module: 'admin', path: 'admin' do
-    resources :products, as: :admin
-    get 'products' => 'products#index'
+    # get 'products' => 'products#index'
+    # patch "products/update" => "products#update", as: :admin_products_update
+    resources :products
   end
-  resources :products
+  # resources :products
 end
