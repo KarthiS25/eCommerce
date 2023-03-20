@@ -1,0 +1,51 @@
+
+<div class="container">
+  <div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-6 card-body cont">
+      <h5 class="card-title"><%= product.name%></h5>
+      <p class="card-text"><strong class="block font-medium mb-1">Description:</strong> "<%= product.description %>"</p>  
+
+      <p class="card-text"><strong class="block font-medium mb-1">Price:</strong>₹<%= product.price.to_f %></p> 
+      <div>
+        <%= button_to "Buy", checkout_create_path, params: {id: product.id}, remote: true%> <span><a href="#" class="btn btn-outline-info">Save this</a></span>
+      </div>
+      <div>
+        <% if current_user.is_admin? %>
+          <% if action_name != "show" %>
+            <p><%= button_to "Destroy this product", product_path(product), method: :delete, class: "btn btn-secondary" %></p>
+            <p><%= link_to 'Edit this product', edit_product_path(product), class: "btn btn-info" %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6 card-body cont">
+      <div class="text-muted">
+        <p class="text-right">Updated on: <%= product.updated_at.ctime.to_s %></p>
+      </div>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% if product.images.attached?%>
+            <div class="carousel-item active">
+              <%= image_tag product.images.first, width:100 %>
+            </div>
+            <% product.images.drop(1).each do |image| %>
+              <div class="carousel-item">
+                <%= image_tag image, width:100 %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  <% end%>
+  </div>
+</div>
